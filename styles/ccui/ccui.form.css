@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+.ccui-form{
+	background:transparent #E8F4FF none repeat scroll 0% 0%;
+	overflow:hidden;
+	padding:0 5px;
+	zoom: 1;
+}
+
+.ccui-form.ui-dialog-content{
+	overflow:hidden;
+}
+
+.ccui-form .fieldContainer{
+	position:relative;
+	zoom: 1;
+	overflow:hidden;
+}
+
+.ccui-form .fieldContainer td{
+	background:#E8F4FF none repeat scroll 0% 0%;
+}
+
+.ccui-form.ui-dialog-content .fieldContainer td{
+	background-color:white;
+}

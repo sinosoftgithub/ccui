@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+.ccui-application{
+	padding:0;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	font-size:10pt;
+}
+
+.ccui-application .application-info{
+	height:25px;
+	background:url(images/application/info-bg.gif);
+}

@@ -1,0 +1,103 @@
+@CHARSET "UTF-8";
+.ccui-fieldLayout{
+	position:relative;
+}
+.ccui-fieldLayout table td{
+	font-size:10pt;
+	background-color:white;
+	padding:1px;
+}
+
+.ccui-fieldLayout table td img{
+	border:0;
+}
+
+.ccui-fieldLayout table td.field-desc{
+	padding:2px;
+}
+
+.ccui-fieldLayout table td label{
+	padding:2px 1px 0px 10px;
+	line-height:22px;
+}
+
+.ccui-fieldLayout table td label.notNull{
+	background:url(images/field/notNull.gif) no-repeat;
+	color:red;
+}
+
+.ccui-fieldLayout table td label.readonly{
+	color:silver;
+}
+
+.ccui-field{
+	position:relative;
+	padding:0px 22px 0px 0px;
+}
+
+.ccui-field input{
+	background:#FFFFFF url(images/field/text-bg.gif) repeat-x scroll 0pt top;
+	border:1px solid #B5B8C8;
+	padding:2px;
+}
+
+.ccui-field.validate-success,.ccui-field.validating-pass{
+	cursor:pointer;
+	background:url(images/field/validate-success.gif) no-repeat right;
+}
+.ccui-field.validate-error,.ccui-field.validating-fail{
+	cursor:pointer;
+	background:url(images/field/exclamation.gif) no-repeat right;
+}
+
+.ccui-field.validating{
+	cursor:pointer;
+	background:url(images/field/validating.gif) no-repeat right;
+}
+
+.field-description{
+	position:absolute;
+	z-index:100;
+	background-color:#EDF7FF;
+	border:1px solid #ADCDE9;
+	height:25px;
+	padding:1px 5px;
+}
+/**********/
+.ccui-field.fieldSelect{
+	cursor:pointer;
+	background:#FFFFFF url(images/field/select-img.gif) no-repeat right;
+}
+
+.ccui-field.fieldSelect.expanded{
+	cursor:pointer;
+}
+
+.fieldSelect-panel{
+	position:absolute;
+	background-color:white;
+	height:200px;
+	padding:2px;
+	z-index:9999;
+	display:none;
+	border:1px solid #ADCDE9;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+
+.fieldSelect-panel .item{
+	padding:1px 2px;
+	cursor:pointer;
+	line-height:18px;
+	vertical-align:middle;
+	white-space:nowrap;
+}
+
+.fieldSelect-panel .item.over{
+	background-color:#eeddff;
+}
+
+.fieldSelect-panel .item.selected{
+	background-color:#316AC5;
+}
+

@@ -1,0 +1,133 @@
+@CHARSET "UTF-8";
+.ccui-menu{
+	padding:0;
+	margin:0 0 0 0;
+	list-style: none;
+	height:20px;
+	z-index:1000;
+}
+
+.ccui-menu.pop{
+	position:absolute;
+	z-index:1000;
+	background: transparent url(images/menu/menu.gif) -5px;
+	width:120px;
+	border:1pt solid silver;
+}
+
+.ccui-menu ul{
+	padding:0;
+	margin:0;
+	list-style: none;
+}
+
+.ccui-menu ul li{
+	cursor:pointer;
+}
+
+.ccui-menu ul li span{
+	display:block;
+	line-height:20px;
+} 
+
+.ccui-menu a{
+	text-decoration:none;color:black;
+}
+/***********************************menuBar*******************************************/
+.ccui-menu li.menuBar{
+	width:60px;
+	float:left;
+	margin:1px 0;
+}
+
+.ccui-menu li.menuBar >span{
+	padding:0 0 0 2pt;
+}
+
+.ccui-menu li.menuBar ul,.ccui-menu li.menuItem ul{
+	display:none;
+	position:absolute;
+	width:200px;
+	border:1pt solid silver;
+	z-index:1000;
+	background: transparent url(images/menu/menu.gif) -5px;
+}
+
+.ccui-menu li.menuBar.expanded>span{
+	background-image:url(images/menu/item-over.gif);
+}
+.ccui-menu li.menuBar.expanded>ul,.ccui-menu li.menuItem.expanded>ul{
+	display:block;
+}
+
+.disabled a{
+	color:silver;
+}
+/***********************************v-menuBar*****************************************/
+.ccui-menu li.v-menuBar{
+	width:100%;
+	margin:1px 0;
+}
+/***********************************menuItem*******************************************/
+.ccui-menu li.split{
+	height:1px;
+	margin:0 3px;
+	font-size:1pt;
+	background-color:silver;
+}
+
+.ccui-menu li.menuItem span{
+	padding:0 0 0 20pt;
+	background-repeat:no-repeat;
+	background-position:2px center;
+}
+.ccui-menu li.menuItem:hover{
+	background-image:url(images/menu/item-over.gif);
+}
+
+.ccui-menu li.menuItem.expandable>span{
+	background-position:right center;
+	background-image:url(images/menu/expandable.gif);
+}
+
+.ccui-menu li.menuItem.open span{
+	background-image:url(images/menu/open.gif);
+}
+
+.ccui-menu li.menuItem.new span{
+	background-image:url(images/menu/new.gif);
+}
+.ccui-menu li.menuItem.save span{
+	background-image:url(images/menu/save.gif);
+}
+.ccui-menu li.menuItem.close span{
+	background-image:url(images/menu/close.gif);
+}
+
+.ccui-menu li.menuItem.exit span{
+	background-image:url(images/menu/exit.gif);
+}
+
+.ccui-menu li.menuItem.cut span{
+	background-image:url(images/menu/cut.gif);
+}
+
+.ccui-menu li.menuItem.copy span{
+	background-image:url(images/menu/copy.gif);
+}
+
+.ccui-menu li.menuItem.paste span{
+	background-image:url(images/menu/paste.gif);
+}
+
+.ccui-menu li.menuItem.about span{
+	background-image:url(images/menu/about.gif);
+}
+
+.ccui-menu li.menuItem.help span{
+	background-image:url(images/menu/help.gif);
+}
+
+.ccui-menu li.menuItem.ok span{
+	background-image:url(images/menu/ok.gif);
+}

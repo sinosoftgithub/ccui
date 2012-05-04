@@ -1,0 +1,209 @@
+@CHARSET "UTF-8";
+.ccui-workflow{
+	position:relative;
+	overflow:auto;
+}
+.ccui-workflow .bg{
+	width:100%;
+	height:100%;
+	background:url(images/workflow/bg.png) repeat;
+	z-index:1;
+	filter:alpha(opacity=40);
+	opacity:0.4;
+}
+
+.ccui-workflow canvas{
+	width:100%;
+	height:100%;
+	position:absolute;
+}
+
+.ccui-workflow .node,.palette-dragging.item{
+	width:100px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	vertical-align:middle;
+	position:absolute;
+	background-repeat:no-repeat;
+	background-position:center;
+	padding:1pt;
+	z-index:2;
+	background-image:url(images/workflow/task_empty_110.png);
+}
+
+.ccui-workflow .node.start,.palette-dragging.start{
+	width:50px;
+	font-size:0pt;
+	background-image:url(images/workflow/48/start_event_empty.png);
+}
+
+.ccui-workflow .node.end,.palette-dragging.end{
+	width:50px;
+	font-size:0pt;
+	background-image:url(images/workflow/48/end_event_terminate.png);
+}
+
+.ccui-workflow .node.cancel,.palette-dragging.cancel{
+	width:50px;
+	font-size:0pt;
+	background-image:url(images/workflow/48/end_event_cancel.png);
+}
+
+.ccui-workflow .node.error,.palette-dragging.error{
+	width:50px;
+	font-size:0pt;
+	background-image:url(images/workflow/48/end_event_error.png);
+}
+
+.ccui-workflow .node.join,.ccui-workflow .node.fork{
+	width:50px;
+	font-size:0pt;
+	background-image:url(images/workflow/48/gateway_parallel.png);
+}
+
+.ccui-workflow .node.state,.ccui-workflow .node.script,.ccui-workflow .node.java
+,.ccui-workflow .node.hql,.ccui-workflow .node.sql,.ccui-workflow .node.esb,.ccui-workflow .node.task{
+	background-image:url(images/workflow/task_empty_110.png);
+}
+
+.ccui-workflow .node.decision,.palette-dragging.decision{
+	width:50px;
+	font-size:0pt;
+	background-image:url(images/workflow/48/gateway_exclusive.png);
+}
+
+.ccui-workflow .node.fork,.palette-dragging.fork{
+	width:50px;
+	font-size:0pt;
+	background-image:url(images/workflow/48/gateway_parallel.png);
+}
+
+.ccui-workflow .node.join,.palette-dragging.join{
+	width:50px;
+	font-size:0pt;
+	background-image:url(images/workflow/48/gateway_parallel.png);
+}
+
+
+.ccui-workflow .node.ui-selected,.node.ui-selecting{
+	color:#0A04E3;
+	padding:0pt;
+	border:1pt dotted #000;
+	font-style:italic;
+}
+
+.ccui-workflow .node.click{
+	color:red;
+	padding:0pt;
+	border:1pt dotted #000;
+	z-index:5;
+}
+
+.ccui-workflow .node-dragging{
+	position:absolute;
+	border:1pt dotted #000;
+	background:silver;
+	filter:alpha(opacity=40);
+	opacity:0.4;
+	z-index:10;
+	display:none;
+}
+
+.ccui-workflow .select-dragging .helper-element{
+	position:absolute;
+	border:1pt dotted #000;
+	background:silver;
+	filter:alpha(opacity=40);
+}
+
+.ccui-workflow .transition .point,.ccui-workflow .point-dragging{
+	position:absolute;
+	background-color:#000;
+	width:4px;
+	height:4px;
+	cursor:move;
+	z-index:6;
+}
+
+.ccui-workflow .transition .transitionName{
+	position:absolute;
+	border:1pt solid silver;
+	z-index:6;
+}
+
+.ccui-workflow .point-dragging{
+	display:none;
+}
+
+.ccui-workflow .select-dragging{
+	position:absolute;
+	border:1pt dotted #000;
+}
+
+.ccui-workflow .container{
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+.ccui-workflow canvas{
+	position:absolute;
+	zoom:1;
+	left:0;
+	top:0;
+}
+/******************相关组件的图标*******************************************/
+.ccui-tree li.treeNode.transition >span,.ccui-palette ul li.paletteItem.transition span{
+	background-image:url(images/workflow/16/flow_sequence.png);
+}
+.ccui-tree li.treeNode.state >span,.ccui-palette ul li.paletteItem.state span{
+	background-image:url(images/workflow/16/task_empty.png);
+}
+.ccui-tree li.treeNode.start >span,.ccui-palette ul li.paletteItem.start span{
+	background-image:url(images/workflow/16/start_event_empty.png);
+}
+.ccui-tree li.treeNode.end >span,.ccui-palette ul li.paletteItem.end span{
+	background-image:url(images/workflow/16/end_event_terminate.png);
+}
+.ccui-tree li.treeNode.cancel >span,.ccui-palette ul li.paletteItem.cancel span{
+	background-image:url(images/workflow/16/end_event_cancel.png);
+}
+.ccui-tree li.treeNode.error >span,.ccui-palette ul li.paletteItem.error span{
+	background-image:url(images/workflow/16/end_event_error.png);
+}
+.ccui-tree li.treeNode.hql >span,.ccui-palette ul li.paletteItem.hql span{
+	background-image:url(images/workflow/16/task_empty.png);
+}
+.ccui-tree li.treeNode.sql >span,.ccui-palette ul li.paletteItem.sql span{
+	background-image:url(images/workflow/16/task_empty.png);
+}
+.ccui-tree li.treeNode.java >span,.ccui-palette ul li.paletteItem.java span{
+	background-image:url(images/workflow/16/task_empty.png);
+}
+.ccui-tree li.treeNode.script >span,.ccui-palette ul li.paletteItem.script span{
+	background-image:url(images/workflow/16/task_empty.png);
+}
+.ccui-tree li.treeNode.esb >span,.ccui-palette ul li.paletteItem.esb span{
+	background-image:url(images/workflow/16/task_empty.png);
+}
+.ccui-tree li.treeNode.state >span,.ccui-palette ul li.paletteItem.task span{
+	background-image:url(images/workflow/16/task_empty.png);
+}
+.ccui-tree li.treeNode.decision >span,.ccui-palette ul li.paletteItem.decision span{
+	background-image:url(images/workflow/16/gateway_exclusive.png);
+}
+.ccui-tree li.treeNode.fork >span,.ccui-palette ul li.paletteItem.fork span{
+	background-image:url(images/workflow/16/gateway_parallel.png);
+}
+.ccui-tree li.treeNode.join >span,.ccui-palette ul li.paletteItem.join span{
+	background-image:url(images/workflow/16/gateway_parallel.png);
+}
+
+.ccui-palette ul li.paletteItem.Select span{
+	background-image:url(images/select16.gif);
+}
+
+.ccui-palette ul li.paletteItem.Marquee span{
+	background-image:url(images/marquee16.gif);
+}

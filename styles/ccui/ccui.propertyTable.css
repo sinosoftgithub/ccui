@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+.ccui-propertyTable{
+	font-size:10pt;
+	position:relative;
+}
+
+.ccui-propertyTable.disabled{
+	color:silver;
+}
+
+.ccui-propertyTable ul{
+	padding:0;
+	margin:0;
+	border:0;
+	list-style: none;
+	vertical-align: top;
+}
+
+.ccui-propertyTable >ul{
+	border-top:1pt solid #000;
+}
+
+.ccui-propertyTable li.propertyGroup .propertyGroup{
+	cursor:pointer;
+	font-weight:bold;
+	background: #ffffff url(images/grid/group-expand-sprite.gif) no-repeat 2pt 1pt;
+}
+
+.ccui-propertyTable li.propertyGroup ul{
+	display:none;
+}
+
+.ccui-propertyTable li.propertyGroup.expanded .propertyGroup{
+	background-position:2pt -36.5pt;
+}
+.ccui-propertyTable li.propertyGroup.expanded ul{
+	display:block;
+}
+
+.ccui-propertyTable li table{
+	border-bottom:1pt solid #000000;
+	vertical-align: top;
+}
+
+.ccui-propertyTable li td{
+	border-left:1pt solid #000000;
+	padding:2px 2px 2px 20px;
+	vertical-align: middle;
+	width:50%;
+}
+
+.editor-fieldSelect .ccui-field-select-body{
+	margin:0px;
+}
+
+.editor-input.ccui-field{
+	position:absolute;
+}
+
+.ccui-propertyTable .value{
+	cursor:pointer;
+	padding-left:2px;
+}
+

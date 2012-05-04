@@ -1,0 +1,217 @@
+@CHARSET "UTF-8";
+body{
+	padding:0;
+	margin:0;
+	font-size:10pt;
+}
+
+.ccui-loadCover{
+	background-color:white;
+	/**filter:Alpha(opacity=65);
+	opacity:0.65;*/
+	position:absolute;
+	border:1pt dotted silver;
+	text-align:center;
+	padding:5px;
+	height:200px;
+}
+
+.ccui-panel {
+	zoom: 1;
+	overflow: hidden;
+	position:relative;
+}
+
+.ccui-panel .ccui-panel-header {
+	overflow: hidden;
+	zoom: 1;
+	color: #15428b;
+	font: bold 10pt tahoma, arial, verdana, sans-serif;
+	padding: 5px 3px 4px 5px;
+	border: 1px solid #99bbe8;
+	line-height: 15px;
+	background: transparent url(images/panel/white-top-bottom.gif)
+		repeat-x 0 -1px;
+}
+
+.ccui-panel .ccui-panel-header .message{
+	color:red;
+}
+
+.ccui-panel .ccui-panel-body {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-bbar .ccui-toolbar {
+	border: 1px solid #99bbe8;
+	border-top: 0 none;
+	overflow: hidden;
+	padding: 2px;
+}
+
+.ccui-panel .ccui-panel-tbar .ccui-toolbar {
+	border: 1px solid #99bbe8;
+	border-top: 0 none;
+	overflow: hidden;
+	padding: 2px;
+}
+
+.ccui-panel .ccui-panel-tbar-noheader .ccui-toolbar,.ccui-panel-mc .ccui-panel-tbar .ccui-toolbar
+	{
+	border-top: 1px solid #99bbe8;
+	border-bottom: 0 none;
+}
+
+.ccui-panel .ccui-panel-body-noheader,.ccui-panel-mc .ccui-panel-body {
+	
+}
+
+.ccui-panel .ccui-panel-header {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-tl .ccui-panel-header {
+	color: #15428b;
+	font: bold tahoma, arial, verdana, sans-serif;
+	padding: 5px 0 4px 0;
+	border: 0 none;
+	background: transparent;
+}
+
+.ccui-panel .ccui-panel-tl .ccui-panel-icon,.ccui-window-tl .ccui-panel-icon {
+	padding-left: 20px !important;
+	background-repeat: no-repeat;
+	background-position: 0 4px;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-inline-icon {
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	vertical-align: middle;
+	margin-right: 4px;
+	margin-top: -1px;
+	margin-bottom: -1px;
+}
+
+.ccui-panel .ccui-panel-tc {
+	background: transparent url(images/panel/top-bottom.gif)
+		repeat-x 0 0;
+	overflow: hidden;
+}
+
+.ccui-panel .ccui-panel-tl {
+	background: transparent url(images/panel/corners-sprite.gif)
+		no-repeat 0 0;
+	padding-left: 6px;
+	zoom: 1;
+	border-bottom: 1px solid #99bbe8;
+}
+
+.ccui-panel .ccui-panel-tr {
+	background: transparent url(images/panel/corners-sprite.gif)
+		no-repeat right 0;
+	zoom: 1;
+	padding-right: 6px;
+}
+
+.ccui-panel .ccui-panel-bc {
+	background: transparent url(images/panel/bottom-center.gif)
+		repeat-x 0 bottom;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-bc .ccui-panel-footer {
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-bl {
+	background: transparent url(images/panel/corners-sprite.gif)
+		no-repeat 0 bottom;
+	padding-left: 6px;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-br {
+	background: transparent url(images/panel/corners-sprite.gif)
+		no-repeat right bottom;
+	padding-right: 6px;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-mc {
+	border: 0 none;
+	padding: 0;
+	margin: 0;
+	font: normal 11px tahoma, arial, helvetica, sans-serif;
+	padding-top: 6px;
+	background: #E8F4FF;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-mc .ccui-panel-body {
+	background: transparent;
+	border: 0 none;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-ml {
+	background: #fff url(images/panel/left-right.gif) repeat-y 0 0;
+	padding-left: 6px;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-mr {
+	background: transparent url(images/panel/left-right.gif)
+		repeat-y right 0;
+	padding-right: 6px;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-bc .ccui-panel-footer {
+	padding-bottom: 2px;
+	padding-top: 2px;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-footer-content {
+	background: #E8F4FF;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-nofooter .ccui-panel-bc {
+	height: 6px;
+	font-size: 0;
+	line-height: 0;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-bwrap {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-body {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-collapsed .ccui-resizable-handle {
+	display: none;
+	zoom: 1;
+}
+
+.ccui-panel .ccui-panel-minimize{
+	float:right;
+	width:16px;
+	heigth:16px;
+	background: transparent url(images/panel/collapse.gif) center;
+}
+
+.ccui-panel .ccui-panel-minimize.max{
+	background: transparent url(images/panel/expand.gif) center;
+}

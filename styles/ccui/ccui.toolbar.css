@@ -1,0 +1,82 @@
+@CHARSET "UTF-8";
+.ccui-toolbar{
+	font-size:11pt;
+	padding:0 0 0 5px;
+	margin:5px 0;
+	line-height:30px;
+	height:30px;
+	vertical-align:middle;
+	position:relative;
+	clear:both;
+}
+.ccui-toolbar ul{
+	padding:0;
+	margin:0;
+	list-style: none;
+}
+.ccui-toolbar li{
+	float:left;
+	cursor:pointer;
+}
+
+.ccui-toolbar li.drag{
+	width:5px;
+	height:30px;
+	float:left;
+	cursor:move;
+	background:url(images/toolbar/drag.gif) no-repeat center center;
+}
+
+.ccui-toolbar li.active{
+	width:8px;
+	height:30px;
+	background:url(images/toolbar/active.gif) no-repeat center center;
+}
+
+.ccui-toolbar li.active:hover{
+	border:1pt solid silver;
+	width:6px;
+	height:28px;
+}
+
+.ccui-toolbar li.toolbarItem{
+	width:30px;
+	height:30px;
+	background-position:center center;
+	background-repeat:no-repeat;
+}
+
+.ccui-toolbar li.toolbarItem.disabled{
+	filter:alpha(opacity=10);
+	opacity:0.1;
+}
+
+.ccui-toolbar li.toolbarItem:hover{
+	border:1pt solid silver;
+	width:28px;
+	height:28px;
+}
+
+.ccui-toolbar li.toolbarItem.undo{
+	background-image:url(images/toolbar/undo_edit.gif);
+}
+
+.ccui-toolbar li.toolbarItem.redo{
+	background-image:url(images/toolbar/redo_edit.gif);
+}
+.ccui-toolbar li.toolbarItem.new{
+	background-image:url(images/toolbar/new_page.gif);
+}
+.ccui-toolbar li.toolbarItem.open{
+	background-image:url(images/toolbar/open.gif);
+}
+.ccui-toolbar li.toolbarItem.save{
+	background-image:url(images/toolbar/save.gif);
+}
+.ccui-toolbar li.toolbarItem.print{
+	background-image:url(images/toolbar/print_edit.gif);
+}
+.ccui-toolbar li.toolbarItem.help{
+	background-image:url(images/toolbar/help.gif);
+}
+

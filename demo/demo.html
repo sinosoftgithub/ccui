@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>工作流设计器</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<script type="text/javascript" src="../scripts/lib/excanvas.js"></script>
+		<script type="text/javascript" src="../scripts/lib/json2.js"></script>
+		<script type="text/javascript" src="../scripts/lib/jquery.js"></script>
+		<script type="text/javascript" src="../scripts/lib/ui/jquery.ui.core.js"></script>
+		<script type="text/javascript" src="../scripts/lib/ui/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="../scripts/lib/ui/jquery.ui.mouse.js"></script>
+		<script type="text/javascript" src="../scripts/lib/ui/jquery.ui.position.js"></script>
+		<script type="text/javascript" src="../scripts/lib/ui/jquery.ui.draggable.js"></script>
+		<script type="text/javascript" src="../scripts/lib/ui/jquery.ui.droppable.js"></script>
+		<script type="text/javascript" src="../scripts/lib/ui/jquery.ui.menu.js"></script>
+		<script type="text/javascript" src="../scripts/lib/ui/jquery.ui.selectable.js"></script>
+		<script type="text/javascript" src="../scripts/lib/ui/jquery.ui.dialog.js"></script>
+		<script type="text/javascript" src="../scripts/lib/colorpicker.js"></script>
+		
+		<script type="text/javascript" src="../scripts/ccui/ccui.widget.js"></script>
+		<script type="text/javascript" src="../scripts/ccui/ccui.toolbar.js"></script>
+		<script type="text/javascript" src="../scripts/ccui/ccui.application.js"></script>
+		<script type="text/javascript" src="../scripts/ccui/ccui.menu.js"></script>
+		<script type="text/javascript" src="../scripts/ccui/ccui.palette.js"></script>
+		<script type="text/javascript" src="../scripts/ccui/ccui.fieldEditor.js"></script>
+		<script type="text/javascript" src="../scripts/ccui/ccui.propertyTable.js"></script>
+		<script type="text/javascript" src="../scripts/ccui/ccui.workflow.js"></script>
+		
+		
+		<script type="text/javascript" src="demo.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../styles/ui/jquery.ccui.ui.css"></link>
+		<link rel="stylesheet" type="text/css" href="../styles/ccui/ccui.workflow.css"></link>
+		<link rel="stylesheet" type="text/css" href="../styles/ccui/ccui.application.css"></link>
+		<link rel="stylesheet" type="text/css" href="../styles/ccui/ccui.palette.css"></link>
+		<link rel="stylesheet" type="text/css" href="../styles/ccui/ccui.toolbar.css"></link>
+		<link rel="stylesheet" type="text/css" href="../styles/ccui/ccui.menu.css"></link>
+		<link rel="stylesheet" type="text/css" href="../styles/ccui/ccui.layout.css"></link>
+		<link rel="stylesheet" type="text/css" href="../styles/ccui/ccui.tree-new.css"></link>
+		<link rel="stylesheet" type="text/css" href="../styles/ccui/ccui.propertyTable.css"></link>
+		<style>
+			body{
+				font-size:10pt;
+				font-family:宋体;
+			}
+		</style>
+		<script>
+			
+		</script>
+	</head>
+	  
+	<body class="flora" style="padding:0px;margin:0px;overflow:hidden;">
+  		<div id="application-layout">
+	  		<div class="ccui-cover-split"></div>
+	    	<div class="pane north">
+	  			<div id="application-menu">
+	  				<ul>
+	  					<li class="menuBar"><span><a>文件 (F)</a></span>
+	  						<ul>
+	  							<li id="new" class="menuItem new disabled"><span><a>新建</a></span></li>
+	  							<li id="open" class="menuItem open"><span><a>打开</a></span></li>
+	  							<li id="save" class="menuItem save disabled" action="save"><span><a>保存</a></span></li>
+	  							<li class="split"></li>
+	  							<li id="close" class="menuItem close"><span><a>关闭</a></span></li>
+	  							<li id="exit" class="menuItem exit"><span><a>退出</a></span></li>
+	  						</ul>
+	  					</li>
+	  					<li class="menuBar"><span><a>编辑 (E)</a></span>
+	  						<ul>
+	  							<li id="undo" class="menuItem undo disabled" command="undo"><span><a>撤销</a></span></li>
+	  							<li id="redo" class="menuItem redo disabled" command="redo"><span><a>重做</a></span></li>
+	  							<li class="split"></li>
+	  							<li id="cut" class="menuItem cut disabled" command="cut"><span><a>剪切</a></span></li>
+	  							<li id="copy" class="menuItem copy disabled" action="copy"><span><a>复制</a></span></li>
+	  							<li id="paste" class="menuItem paste disabled" command="paste"><span><a>粘贴</a></span></li>
+	  						</ul>
+	  					</li>
+	  					<li class="menuBar"><span><a>工具 (T)</a></span>
+	  						<ul>
+	  							<li id="opt" class="menuItem opt"><span><a>选项</a></span></li>
+	  							<li id="tool1" class="menuItem expandable"><span><a>外部工具</a></span>
+	  								<ul>
+	  									<li id="t1" class="menuItem"><span><a>工具一</a></span></li>
+	  									<li id="t2" class="menuItem disabled"><span><a>工具二</a></span></li>
+	  									<li id="t3" class="menuItem disabled"><span><a>工具三</a></span></li>
+	  								</ul>
+	  							</li>
+	  						</ul>
+	  					</li>
+	  					<li class="menuBar"><span><a>窗口 (W)</a></span>
+	  						<ul>
+	  							<li id="palette" class="menuItem palette check ok" action="showPalette"><span><a>显示palette</a></span></li>
+	  						</ul>
+	  					</li>
+	  					<li class="menuBar"><span><a>帮助 (H)</a></span>
+	  						<ul>
+	  							<li id="about" class="menuItem about"><span><a>关于</a></span></li>
+	  							<li id="help" action="help" class="menuItem help"><span><a>帮助</a></span></li>
+	  						</ul>
+	  					</li>
+	  				</ul>
+	  			</div>
+	  			<div id="application-toolbar">
+		  			<ul>
+		  				<li class="toolbarGroup">
+		  					<ul>
+		  						<li class="drag"></li>
+		  						<li	id="undo" command="undo" class="toolbarItem undo disabled" title="撤销"></li>
+		  						<li class="active" title="撤销列表"></li>
+		  						<li id="redo" command="redo" class="toolbarItem redo disabled" title="重做"></li>
+		  						<li class="active" title="重做列表"></li>
+		  					</ul>
+		  				</li>
+		  				<li class="toolbarGroup">
+		  					<ul>
+		  						<li class="drag"></li>
+		  						<li id="new" class="toolbarItem new" title="新建"></li>
+		  						<li id="save" action="save" class="toolbarItem save disabled" title="保存"></li>
+		  						<li id="print" class="toolbarItem print" title="打印"></li>
+		  					</ul>
+		  				</li>
+		  				<li class="toolbarGroup">
+		  					<ul>
+		  						<li class="drag"></li>
+		  						<li id="help" action="help" class="toolbarItem help" title="帮助"></li>
+		  					</ul>
+		  				</li>
+		  			</ul>
+		  		</div>
+	  		</div>
+	  		<div class="pane west">
+	  			<div id="tree-workflow-element">
+			    	<ul>
+				  		<li id="root_workspace" class="treeNode root"><span><a>工作区间</a></span>
+				  			<ul>
+				  				<li class="treeNode expandable expanded" id="node"><span><a href="#">节点</a></span></li>
+				  				<li class="treeNode expandable expanded" id="transition"><span><a href="#">连接</a></span></li>
+				  			</ul>
+				  		</li>
+				  	</ul>
+	    		</div>
+	  		</div>
+	  		<div class="pane center" >
+	  			<div id="editor-workflow" class="palette-drop">
+	  				<div class="bg"></div>
+				  	<div class="node-dragging"></div>
+				  	<div class="point-dragging"></div>
+				  	<div class="select-dragging"></div>
+				  	<canvas class="main"></canvas>
+				  	<canvas class="helper" ></canvas>
+				  	
+				  	<div id="start"  class="node start" style="top:90px;left:10px;"></div>
+				  	<div id="decision1" class="node decision" style="top:90px;left:105px;"></div>
+				  	
+				  	<div id="state1" class="node state"  style="top:10px;left:200px;">审批</div>
+				  	<div id="wait"   class="node state" style="top:90px;left:200px;">等待</div>
+				  	
+				  	<div id="start-decision1" class="transition" to="decision1" from="start">
+						<div id="start-decision1-p0" class="point" style="left: 80.5px; top: 114.5px;"></div>
+					</div>
+	  			</div>
+	  		</div>
+	  		<div class="pane east">
+	  			<div id="application-propertyTable">
+	  				<ul>
+	  					<li class="propertyGroup expanded">属性
+	  						<ul>
+		  						<li id="id" class="property">id</li>
+		  						<li editor="input" id="name" class="property">name</li>
+		  						<li editor="input" id="text" class="property">text</li>
+	  						</ul>
+	  					</li>
+	  					<li class="propertyGroup">节点属性
+	  						<ul>
+		  						<li id="nodeType" class="property">节点类型</li>
+		  						<li editor="input" id="top" class="property">上边距</li>
+		  						<li editor="input" id="left" class="property">左边距</li>
+	  						</ul>
+	  					</li>
+	  					<li class="propertyGroup">样式
+	  						<ul>
+		  						<li class="property">文字</li>
+		  						<li class="property">颜色</li>
+		  						<li class="property">对齐</li>
+	  						</ul>
+	  					</li>
+	  				</ul>
+	  			</div>
+	  		</div>
+	  		<div class="pane south">
+	  			south
+	  		</div>
+  		</div>
+  		
+  		
+  		<div id="dialog-help">
+  			点击节点，按住shift，再点击其他节点，则增加两点间的连线。
+  		</div>
+  		
+  		<div id="application-palette">
+  			<div class="dragHandle move"><span class="move">palette</span></div>
+  			<ul>
+  				<li class=""><span><a></a></span>
+  					<ul>
+  						<li id="Select" class="paletteItem Select toggle"><span><a>Select</a></span></li>
+  						<li id="Marquee" class="paletteItem Marquee toggle"><span><a>Marquee</a></span></li>
+  					</ul>
+  				</li>
+  				<li class="paletteBar"><span><a>Components</a></span>
+  					<ul>
+  						<li id="transition" class="paletteItem transition toggle"><span><a>transition</a></span></li>
+  						<li id="start"  class="paletteItem start"><span><a>start</a></span></li>
+  						<li id="end" class="paletteItem end"><span><a>end</a></span></li>
+  						<li id="cancel" class="paletteItem cancel"><span><a>cancel</a></span></li>
+  						<li id="error" class="paletteItem error"><span><a>error</a></span></li>
+  						<li id="state" class="paletteItem state"><span><a>state</a></span></li>
+  						<li id="hql" class="paletteItem hql"><span><a>hql</a></span></li>
+  						<li id="sql" class="paletteItem sql"><span><a>sql</a></span></li>
+  						<li id="java" class="paletteItem java"><span><a>java</a></span></li>
+  						<li id="script" class="paletteItem script"><span><a>script</a></span></li>
+  						<li id="esb" class="paletteItem esb"><span><a>esb</a></span></li>
+  						<li id="task" class="paletteItem task"><span><a>task</a></span></li>
+  						<li id="decision" class="paletteItem decision"><span><a>decision</a></span></li>
+  						<li id="fork" class="paletteItem fork"><span><a>fork</a></span></li>
+  						<li id="join" class="paletteItem join"><span><a>join</a></span></li>
+  					</ul>
+  				</li>
+  			</ul>
+  		</div>
+	</body>
+</html>
