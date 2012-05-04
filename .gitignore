@@ -1,0 +1,8 @@
+*.jar
+/target/
+/bin/
+/src/main/webapp/WEB-INF/classes
+.classpath
+.project
+/.settings/
+*.bak
