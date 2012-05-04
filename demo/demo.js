@@ -31,8 +31,11 @@ $(function(){
 	}
 	//初始化属性表格
 	$('#application-propertyTable').propertyTable({
-		
 	});
+	
+	//初始化属性编辑器
+	//$('body').fieldEditor({
+	//});
 	
 	$('#application-layout').layout({
 		appendTo:'body',

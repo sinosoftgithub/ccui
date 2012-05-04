@@ -1,8 +1,9 @@
 (function($) {
-	$.widget("ccui.propertyTable",$.ccui.fieldEditor,{
-		/**
-		 * widget 组件初始化方法
-		 */
+	$.widget("ccui.propertyTable",{
+		
+		options:{
+		},
+		
 		_init:function(){
 			var self = this;
 			this.element.addClass('ccui-propertyTable disabled');
@@ -14,7 +15,12 @@
 			});
 			
 			$('body',document).click(function(){
-				self.element.closeEditor();
+				if(self.currentFieldEditor){
+					if(self.currentFieldEditor.fieldEditor){
+				self.currentFieldEditor.fieldEditor('destroy');
+				self.currentFieldEditor = {};
+			}
+			}
 			});
 		},
 		
@@ -24,7 +30,12 @@
 				if($(this).hasClass('disabled')){
 					return;
 				}
-				this.element.closeEditor();
+				if(self.currentFieldEditor){
+					if(self.currentFieldEditor.fieldEditor){
+				self.currentFieldEditor.fieldEditor('destroy');
+				self.currentFieldEditor = {};
+			}
+			}
 				var clickElement = $(event.srcElement||event.target);
 				if(clickElement.is('.propertyGroup')){
 					clickElement.toggleClass('expanded');
@@ -34,7 +45,9 @@
 						editor = propertyElement.attr('editor'),
 						id = propertyElement.attr('id'),
 						editorName = propertyElement.attr('editorName')||id;
-					this.element.open(editor,editorName,clickElement,self.editorChange);
+					clickElement.fieldEditor();
+					clickElement.fieldEditor('open',editor,editorName,clickElement,self.editorChange);
+					self.currentFieldEditor = clickElement;
 					return false;
 				}
 			});
@@ -77,10 +90,7 @@
 		
 		reset:function(){
 			this.element.find('li').not('.propertyGroup').find('.value').html('&nbsp;');
-		},
-		
-		destory:function(){
-			
 		}
+		
 	});
 })(jQuery);
